@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ========== GLOBAL ========== */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* ========== HEADER ========== */
+body .custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-image: url('https://www.paho.org/sites/default/files/primary-care-illustration.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body .custom-header h2 {
+  margin: 0;
+}
+
+body .custom-button {
+  padding: 0.5em 1em;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* ========== MAIN PANEL ========== */
+.main-container {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 100px); /* Ajustá si querés más espacio para el header */
+}
+
+/* Lado izquierdo */
+.left-panel {
+  width: 50%;
+  height: 100%;
+  padding: 1rem;
+  padding-top: 4rem;
+}
+
+/* Lado derecho */
+.right-panel {
+  width: 50%;
+  height: 100%;
+  padding: 1rem;
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* PDF canvas */
+#pdf-canvas {
+  border: 1px solid #e5e7eb; /* border-gray-200 */
+  width: 100%;
+  height: auto;
+}
+
+/* ========== CHAT ========== */
+#chat {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: #f3f4f6; /* bg-gray-100 */
+  border-radius: 0.5rem;
+}
+
+/* Input */
+#user-input {
+  background-color: #d4e3fa; /* bg-blue-500 */
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
+/* Botón */
+.send-button {
+  background-color: #3b82f6; /* bg-blue-500 */
+  color: white;
+  padding: 0.5rem;
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  cursor: pointer;
+  border: none;
+}
+
+.upload-button {
+  background-color: #3b82f6; /* igual que .send-button */
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 1rem;
+  width: 100%; /* 🔥 Esto hace que ocupe todo el ancho de la columna */
+  box-sizing: border-box; /* Asegura que el padding no desborde */
+}
+
+.recuadro{
+  background-color: #d4e3fa; /* bg-blue-500 */
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
+/* ========== PORTADA MAIN CONTENT ========== */
+.portada-content {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  align-items: center;
+  flex-wrap: nowrap; /* ✅ Para que no se apilen */
+
+}
+
+.doctor-img {
+  width: 300px;
+  border-radius: 10px;
+  flex-shrink: 0; /* ✅ Para evitar que se reduzca */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.text-block {
+  max-width: 600px;
+  flex: 1; /* ✅ Para que ocupe el espacio restante */
+
+}
+
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .doctor-img {
+    margin-bottom: 1rem;
+  }
+}
+
+.text-block h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: #444;
+}
+
+.text-block p {
+  font-size: 1.1em;
+  line-height: 1.6em;
+  color: #333;
+}
+
+/* ========== FOOTER ========== */
+.custom-footer {
+  margin-top: 5em;
+  padding: 2em;
+  color: white;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://www.paho.org/sites/default/files/primary-care-illustration.jpg'); /* ⬅️ Cambiá esto con tu URL */
+  position: relative;
+  z-index: 0;
+}
+
+.custom-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* superposición oscura */
+  z-index: -1;
+}
+
+.custom-footer p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}

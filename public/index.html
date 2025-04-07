@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF + Asistente Virtual</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.216/pdf.min.js"></script>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-screen flex">
+  <header class="custom-header">
+    <h2>Asistente de atención primaria de la salud</h2>
+    <a href="portada.html" class="custom-button">Volver a la portada</a>
+  </header>  
+
+<div class="main-container">
+
+<!-- Lado izquierdo -->
+<div class="left-panel">
+  <label for="pdf-upload" class="upload-button">Cargar PDF</label>
+  <input type="file" id="pdf-upload" accept="application/pdf" style="display: none;">
+  <canvas id="pdf-canvas"></canvas>
+</div>
+
+<!-- Lado derecho -->
+<div class="right-panel">
+  <div id="chat"></div>
+  <div style="display: flex;">
+    <input id="user-input" type="text" placeholder="Escribí tu pregunta...">
+    <button onclick="sendMessage()" class="send-button">Enviar</button>
+  </div>
+</div>
+</div>
+<footer class="custom-footer">
+  <p>© 2025 Asistente de Atención Primaria. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>
