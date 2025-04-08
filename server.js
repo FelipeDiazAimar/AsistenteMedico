@@ -10,7 +10,7 @@ app.use(express.static('public', { index: false }));
 
 app.post('/ask', async (req, res) => {
   const { question, context } = req.body;
-  const apiKey = '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'; // Reemplazá esto por tu clave
+  const apiKey = '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'; // Reemplazá esto por tu clave
 
   try {
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
