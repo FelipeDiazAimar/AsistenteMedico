@@ -1,3 +1,5 @@
+require('dotenv').config(); // 👉 Agregá esto al principio
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
@@ -10,7 +12,7 @@ app.use(express.static('public', { index: false }));
 
 app.post('/ask', async (req, res) => {
   const { question, context } = req.body;
-  const apiKey = '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'; // Reemplazá esto por tu clave
+  const apiKey = process.env.OPENROUTER_API_KEY;
 
   try {
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -37,11 +39,10 @@ app.post('/ask', async (req, res) => {
   }
 });
 
-// <<<<<< ESTA ES LA PARTE QUE AGREGA LA PORTADA COMO PRINCIPAL >>>>>
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'portada.html'));
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
