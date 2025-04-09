@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contenido de la Cátedra</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="custom-header">
+        <h2>Contenido de la Cátedra</h2>
+        <div class="button-group">
+          <a href="index.html" class="custom-button">Ir al asistente</a>
+          <a href="portada.html" class="custom-button">Volver a la portada</a>
+        </div>
+      </header>
+      
+
+<main class="contenido-main">
+
+
+  <!-- Línea divisora -->
+  <br>
+  
+  <!-- Menú desplegable de archivos PDF -->
+  <label for="pdf-selector">Seleccioná un apunte para descargar:</label>
+  <select id="pdf-selector" onchange="descargarPDF(this)">
+    <option value="">-- Seleccioná un archivo --</option>
+    <option value="pdfs/Criterios de aprobacion - 2025.pdf">Criterios de aprobacion - 2025</option>
+    <option value="pdfs/CAPITULO 3 - SC1 2025.pdf">CAPITULO 3 - SC1 2025</option>
+    <option value="pdfs/CAPITULO 4 - SC1 2025.pdf">CAPITULO 4 - SC1 2025</option>
+    <option value="pdfs/CAPITULO 5 - SC1 2025.pdf">CAPITULO 5 - SC1 2025</option>
+    <!-- Agregá más archivos acá -->
+  </select>
+
+  <!-- Línea divisora -->
+  <hr>
+
+  <!-- Video embebido -->
+  <h4>Video explicativo</h4>
+  <div class="video-container">
+    <!-- Reemplazá la ruta por tu archivo real -->
+    <video controls poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1zSUt4Q1qJW8_NoptikuujTxSlHqviolVBQ&s">
+        <source src="/videos/APS video informativo.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de videos.
+      </video>      
+  </div>
+  
+</main>
+
+<footer class="custom-footer">
+  <p>© 2025 Asistente de Atención Primaria. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  function descargarPDF(selectElement) {
+    const url = selectElement.value;
+    if (url) {
+      window.open(url, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

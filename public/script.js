@@ -1,5 +1,30 @@
 let pdfText = "";
+let pdfDoc = null;
+let currentPage = 1;
+let totalPages = 0;
 const chatDiv = document.getElementById('chat');
+const canvas = document.getElementById('pdf-canvas');
+const ctx = canvas.getContext('2d');
+const pageIndicator = document.getElementById('page-indicator');
+
+async function renderPage(pageNum) {
+  const page = await pdfDoc.getPage(pageNum);
+  const scale = 1.5;
+  const viewport = page.getViewport({ scale });
+  canvas.height = viewport.height;
+  canvas.width = viewport.width;
+
+  await page.render({ canvasContext: ctx, viewport }).promise;
+  pageIndicator.textContent = `Página ${pageNum}`;
+}
+
+function changePage(offset) {
+  const newPage = currentPage + offset;
+  if (newPage >= 1 && newPage <= totalPages) {
+    currentPage = newPage;
+    renderPage(currentPage);
+  }
+}
 
 // Cargar y leer PDF
 document.getElementById('pdf-upload').addEventListener('change', async (e) => {
@@ -8,24 +33,20 @@ document.getElementById('pdf-upload').addEventListener('change', async (e) => {
   const reader = new FileReader();
   reader.onload = async function () {
     const typedarray = new Uint8Array(this.result);
-    const pdf = await pdfjsLib.getDocument({ data: typedarray }).promise;
+    pdfDoc = await pdfjsLib.getDocument({ data: typedarray }).promise;
+    totalPages = pdfDoc.numPages;
+    currentPage = 1;
+
+    // Extraer texto de todas las páginas
     let text = "";
-    for (let i = 1; i <= pdf.numPages; i++) {
-      const page = await pdf.getPage(i);
+    for (let i = 1; i <= totalPages; i++) {
+      const page = await pdfDoc.getPage(i);
       const content = await page.getTextContent();
       text += content.items.map(item => item.str).join(" ") + "\n";
     }
     pdfText = text;
 
-    // Mostrar primera página
-    const page = await pdf.getPage(1);
-    const scale = 1.5;
-    const viewport = page.getViewport({ scale });
-    const canvas = document.getElementById('pdf-canvas');
-    const context = canvas.getContext('2d');
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
-    await page.render({ canvasContext: context, viewport }).promise;
+    renderPage(currentPage);
   };
   reader.readAsArrayBuffer(file);
 });
