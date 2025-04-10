@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 // 🤖 Ruta del asistente
 app.post('/ask', async (req, res) => {
   const { question, context } = req.body;
+  console.log("🔑 ENV VAR:", process.env.OPENROUTER_API_KEY);
   const apiKey = process.env.OPENROUTER_API_KEY;
 
   // 🧾 Log de entrada del usuario
