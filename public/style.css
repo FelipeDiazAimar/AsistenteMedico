@@ -24,6 +24,7 @@ body .custom-header {
   background-size: cover;
   background-position: center;
   color: white;
+  height:100%
 }
 
 body .custom-header h2 {
@@ -67,6 +68,14 @@ body .custom-button {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
+  height: auto;
+}
+
+.contenido-main{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-wrap: nowrap;
   height: auto;
 }
 
