@@ -12,6 +12,7 @@
         <div class="button-group">
           <a href="index.html" class="custom-button">Ir al asistente</a>
           <a href="portada.html" class="custom-button">Volver a la portada</a>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </div>
       </header>
       
@@ -26,7 +27,6 @@
   <label for="pdf-selector">Seleccioná un apunte para descargar:</label>
   <select id="pdf-selector" onchange="descargarPDF(this)">
     <option value="">-- Seleccioná un archivo --</option>
-    <option value="pdfs/Criterios de aprobacion - 2025.pdf">Criterios de aprobacion - 2025</option>
     <option value="pdfs/CAPITULO 3 - SC1 2025.pdf">CAPITULO 3 - SC1 2025</option>
     <option value="pdfs/CAPITULO 4 - SC1 2025.pdf">CAPITULO 4 - SC1 2025</option>
     <option value="pdfs/CAPITULO 5 - SC1 2025.pdf">CAPITULO 5 - SC1 2025</option>
@@ -41,7 +41,7 @@
   <div class="video-container">
     <!-- Reemplazá la ruta por tu archivo real -->
     <video controls poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1zSUt4Q1qJW8_NoptikuujTxSlHqviolVBQ&s">
-        <source src="/videos/APS video informativo.mp4" type="video/mp4">
+        <source src="/public/videos/APS video informativo.mp4" type="video/mp4">
         Tu navegador no soporta la reproducción de videos.
       </video>      
   </div>
