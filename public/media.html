@@ -12,13 +12,12 @@
         <div class="button-group">
           <a href="index.html" class="custom-button">Ir al asistente</a>
           <a href="portada.html" class="custom-button">Volver a la portada</a>
+          <a href="autoevaluacion.html" class="custom-button">Autoevaluaciones</a>
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </div>
-      </header>
+    </header>
       
-
 <main class="contenido-main">
-
 
   <!-- Línea divisora -->
   <br>
@@ -33,54 +32,60 @@
     <!-- Agregá más archivos acá -->
   </select>
 
-  <!-- Infografia -->
-  <h4>Infografia</h4>
-  <img class="infografia" src="https://cdn-v1.udocz-assets.com/uploads/book/cover/243787/atencion_primaria_de_salud-c843f3cad1b54a48f6d202174016b16d.jpg" alt="Infografia">
-
+  <!-- Infografía -->
+  <h4>Infografía</h4>
+  <div class="carousel">
+    <button onclick="prevImage()">←</button>
+    <img id="infografia" class="infografia" src="https://cdn-v1.udocz-assets.com/uploads/book/cover/243787/atencion_primaria_de_salud-c843f3cad1b54a48f6d202174016b16d.jpg" alt="Infografía">
+    <button onclick="nextImage()">→</button>
+  </div>
 
   <!-- Video embebido -->
-  <h4>Video explicativo</h4>
-  <div class="video-container">
-    <video controls poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1zSUt4Q1qJW8_NoptikuujTxSlHqviolVBQ&s">
-        <source src="videos/APS video informativo.mp4" type="video/mp4">
-        Tu navegador no soporta la reproducción de videos.
-      </video>      
+  <h4>Videos explicativos</h4>
+  <div class="carousel video-carousel">
+    <button onclick="prevVideo()">←</button>
+    <video id="video" controls poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1zSUt4Q1qJW8_NoptikuujTxSlHqviolVBQ&s">
+      <source src="videos/APS video informativo.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de videos.
+    </video>
+    <button onclick="nextVideo()">→</button>
   </div>
   
-<!-- Artículos de Medicina -->
-<section class="articulos">
-  <h2>Artículos de Medicina</h2>
+  
+  <!-- Artículos de Medicina -->
+  <section class="articulos">
+    <h2>Artículos de Medicina</h2>
 
-  <div class="articulo">
-    <img src="https://www.paho.org/sites/default/files/es-pacto-aps-30-30-30x600x600_0.jpg" alt="Atención primaria de salud">
-    <div class="contenido">
-      <p>¿En qué consiste la atención primaria de salud?</p>
-      <a href="https://www.paho.org/es/temas/atencion-primaria-salud#:~:text=La%20APS%20es%20un%20enfoque,va%20desde%20la%20promoci%C3%B3n%20de" target="_blank" class="boton">
-        Ver más
-      </a>
+    <div class="articulo">
+      <img class="imgarticulo" src="https://www.paho.org/sites/default/files/es-pacto-aps-30-30-30x600x600_0.jpg" alt="Atención primaria de salud">
+      <div class="contenido">
+        <p>¿En qué consiste la atención primaria de salud?</p>
+        <a href="https://www.paho.org/es/temas/atencion-primaria-salud#:~:text=La%20APS%20es%20un%20enfoque,va%20desde%20la%20promoci%C3%B3n%20de" target="_blank" class="boton">
+          Ver más
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="articulo">
-    <img src="https://www.paho.org/sites/default/files/styles/document_thumb/public/pdfpreview/38405-APS_Alma_Ata-Declaracion-1978.png?itok=ijOF4hAI" alt="Declaración de Alma-Ata">
-    <div class="contenido">
-      <p>¿Qué es la Declaración de Alma-Ata?</p>
-      <a href="https://www.paho.org/es/documentos/declaracion-alma-ata" target="_blank" class="boton">
-        Ver más
-      </a>
+    <div class="articulo">
+      <img class="imgarticulo" src="https://www.paho.org/sites/default/files/styles/document_thumb/public/pdfpreview/38405-APS_Alma_Ata-Declaracion-1978.png?itok=ijOF4hAI" alt="Declaración de Alma-Ata">
+      <div class="contenido">
+        <p>¿Qué es la Declaración de Alma-Ata?</p>
+        <a href="https://www.paho.org/es/documentos/declaracion-alma-ata" target="_blank" class="boton">
+          Ver más
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="articulo">
-    <img src="https://www.paho.org/sites/default/files/styles/max_1300x1300/public/primary-health-care.jpg?itok=iqJ8pb1i" alt="Redes Integradas de Servicios de Salud">
-    <div class="contenido">
-      <p>¿Cómo pueden las Redes Integradas de Servicios de Salud (RISS) fortalecer la Atención Primaria de la Salud (APS) y mejorar el trabajo del equipo de salud según la OPS?</p>
-      <a href="https://www.paho.org/es/temas/redes-integradas-servicios-salud" target="_blank" class="boton">
-        Ver más
-      </a>
+    <div class="articulo">
+      <img class="imgarticulo" src="https://www.paho.org/sites/default/files/styles/max_1300x1300/public/primary-health-care.jpg?itok=iqJ8pb1i" alt="Redes Integradas de Servicios de Salud">
+      <div class="contenido">
+        <p>¿Cómo pueden las Redes Integradas de Servicios de Salud (RISS) fortalecer la Atención Primaria de la Salud (APS) y mejorar el trabajo del equipo de salud según la OPS?</p>
+        <a href="https://www.paho.org/es/temas/redes-integradas-servicios-salud" target="_blank" class="boton">
+          Ver más
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
@@ -96,6 +101,8 @@
     }
   }
 </script>
+
+<script src="/public/script.js"></script>
 
 </body>
 </html>

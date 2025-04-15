@@ -351,6 +351,44 @@ h4 {
   }
 }
 
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 1em auto;
+  max-width: 800px; /* opcional, ajusta el ancho máximo del carrusel */
+}
+
+.carousel button {
+  padding: 5px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #c3d6f6;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.carousel button:hover {
+  background-color: #31ab7a;
+}
+
+.video-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1em;
+}
+
+.video-carousel video {
+  max-width: 80%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
 .articulos {
   max-width: 900px;
   margin: 40px auto;
@@ -369,7 +407,7 @@ h4 {
   align-items: center;
   background-color: #f8f9fa;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 25px;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -379,10 +417,18 @@ h4 {
   transform: scale(1.02);
 }
 
-.articulo img {
+.imgarticulo {
   width: 160px;
   height: 160px;
   object-fit: cover;
+}
+
+.cube{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-left: 25px;
+  margin-right: 7px;
 }
 
 .contenido {

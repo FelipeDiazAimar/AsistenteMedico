@@ -4,10 +4,12 @@ let currentPage = 1;
 let totalPages = 0;
 const chatDiv = document.getElementById('chat');
 const canvas = document.getElementById('pdf-canvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas ? canvas.getContext('2d') : null;
 const pageIndicator = document.getElementById('page-indicator');
 
 async function renderPage(pageNum) {
+  if (!ctx) return;
+
   const page = await pdfDoc.getPage(pageNum);
   const scale = 1.5;
   const viewport = page.getViewport({ scale });
@@ -23,6 +25,64 @@ function changePage(offset) {
   if (newPage >= 1 && newPage <= totalPages) {
     currentPage = newPage;
     renderPage(currentPage);
+  }
+}
+
+const imagenes = [
+  "https://cdn-v1.udocz-assets.com/uploads/book/cover/243787/atencion_primaria_de_salud-c843f3cad1b54a48f6d202174016b16d.jpg",
+  "img/image.png",
+];
+
+let indiceActual = 0;
+
+function mostrarImagen() {
+  const img = document.getElementById("infografia");
+  if (img) {
+    img.src = imagenes[indiceActual];
+  }
+}
+
+function prevImage() {
+  indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+  mostrarImagen();
+}
+
+function nextImage() {
+  indiceActual = (indiceActual + 1) % imagenes.length;
+  mostrarImagen();
+}
+
+// Mostrar la primera imagen cuando se carga la página
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarImagen();
+});
+
+// Reutilizando lógica similar al carrusel de imágenes
+const videoSources = [
+  "videos/APS video informativo.mp4",
+  "videos/¿Qué es la atención primaria de salud - World Health Organization (WHO) (720p, h264).mp4", // Reemplazá por tu segundo video real
+];
+
+let currentVideoIndex = 0;
+
+function updateVideoSource() {
+  const video = document.getElementById("video");
+  video.src = videoSources[currentVideoIndex];
+  video.load();
+  video.play();
+}
+
+function nextVideo() {
+  if (currentVideoIndex < videoSources.length - 1) {
+    currentVideoIndex++;
+    updateVideoSource();
+  }
+}
+
+function prevVideo() {
+  if (currentVideoIndex > 0) {
+    currentVideoIndex--;
+    updateVideoSource();
   }
 }
 
