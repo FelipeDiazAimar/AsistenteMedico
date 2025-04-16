@@ -29,7 +29,7 @@ function changePage(offset) {
 }
 
 const imagenes = [
-  "https://cdn-v1.udocz-assets.com/uploads/book/cover/243787/atencion_primaria_de_salud-c843f3cad1b54a48f6d202174016b16d.jpg",
+  "img/info.png",
   "img/image.png",
 ];
 
