@@ -29,7 +29,7 @@ function changePage(offset) {
 }
 
 const imagenes = [
-  "img/info.png",
+  "img/info.jpg",
   "img/image.png",
 ];
 
